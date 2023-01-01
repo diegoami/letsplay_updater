@@ -48,4 +48,4 @@ urllib3==1.26.13
 virtualenv==20.13.1
 virtualenv-clone==0.5.7
 wrapt==1.13.3
-youtube3==1.2.2
+youtube3==1.2.3

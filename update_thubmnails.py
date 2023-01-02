@@ -4,7 +4,7 @@ import os
 import yaml
 import time
 
-def update_thumbnails(youtube, playlist_id, directory, skipped):
+def update_thumbnails(youtube, playlist_id, directory, skipped, max):
     index = 0
     for video_items in youtube.iterate_videos_in_playlist(playlist_id):
         for item in video_items['items']:
@@ -13,7 +13,9 @@ def update_thumbnails(youtube, playlist_id, directory, skipped):
             thumbnail_file = f"{directory}/thumbnail{index+1}.png"
             if index+1 < skipped:
                 print(f"Skipping youtube.upload_thumbnail({video_id}, {thumbnail_file})")
-
+            elif index+1 >= max:
+                print(f"Reached max {max}")
+                return
             else:
                 print(f"Executing youtube.upload_thumbnail({video_id}, {thumbnail_file})")
                 youtube.upload_thumbnail(video_id, thumbnail_file)
@@ -32,7 +34,12 @@ if __name__ == "__main__":
             conf_info = yaml.safe_load(confhandle)
             print(conf_info)
             if conf_info.get("playlist",None) and conf_info.get("thumbnail_directory", None):
-                update_thumbnails(youtube, conf_info["playlist"], conf_info["thumbnail_directory"], conf_info["skipped"])
+                update_thumbnails(youtube,
+                                  conf_info["playlist"],
+                                  conf_info["thumbnail_directory"],
+                                  conf_info.get("skipped",0),
+                                  conf_info.get("max",1000)
+                                  )
         #videoInfo = youtube.get_video(args.videoId)
         #youtube.upload_thumbnail(args.videoId, args.thumbnail)
 

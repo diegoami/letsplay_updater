@@ -10,6 +10,7 @@ def update_thumbnails(youtube, playlist_id, directory, skipped, max):
         for item in video_items['items']:
             content_details = item['contentDetails']
             video_id = content_details['videoId']
+            title = item['snippet']['title']
             thumbnail_file = f"{directory}/thumbnail{index+1}.png"
             if index+1 < skipped:
                 print(f"Skipping youtube.upload_thumbnail({video_id}, {thumbnail_file})")
@@ -17,6 +18,8 @@ def update_thumbnails(youtube, playlist_id, directory, skipped, max):
                 print(f"Reached max {max}")
                 return
             else:
+                if 'Deleted' in title:
+                    continue
                 print(f"Executing youtube.upload_thumbnail({video_id}, {thumbnail_file})")
                 youtube.upload_thumbnail(video_id, thumbnail_file)
                 time.sleep(1)

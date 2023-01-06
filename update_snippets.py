@@ -9,35 +9,35 @@ def update_snippets(youtube, playlist_id, search_text, replace_text, prepend_des
     index = 0
     for video_items in youtube.iterate_videos_in_playlist(playlist_id):
         for item in video_items['items']:
-            videoId = item['snippet']["resourceId"]["videoId"]
-
-            video_snippet = youtube.get_video_snippet(videoId)
-            video_snippet["title"] = re.sub(search_text, replace_text, video_snippet["title"])
-            video_snippet["title"] = video_snippet["title"].replace(search_text, replace_text)
-            video_snippet["tags"] = tags
-            youtube.update_snippet(video_id=videoId, video_snippet=video_snippet)
             if index+1 < skipped:
-                print(f"Skipping youtube.update_snippet({videoId}, {video_snippet})")
+                print(f"Skipping youtube.update_snippet({index})")
             elif index+1 >= max:
                 print(f"Max reached: {max}")
                 return
             else:
-                print(f"Executing youtube.update_snippet({videoId}, {video_snippet})")
-                if videoId not in video_snippet["description"]:
-                    prep_replace = prepend_desc.replace("VIDEO_ID", videoId).replace("INDEX_ID", str(index + 1))
-                    video_in = video_snippet["description"].split("\n")
-                    video_out = []
-                    for index, inv in reversed(list(enumerate(video_in))):
-                        if "----" in inv:
-                            break
-                        video_out = video_out + [inv]
-                    video_post = "\n".join(reversed(video_out))
-                    video_snippet["description"] = prep_replace + "\n-----------\n" + video_post
+                if len(item['snippet']) > 0:
+                    videoId = item['snippet']["resourceId"]["videoId"]
+                    video_snippet = youtube.get_video_snippet(videoId)
 
+                    video_snippet["title"] = re.sub(search_text, replace_text, video_snippet["title"])
+                    video_snippet["title"] = video_snippet["title"].replace(search_text, replace_text)
 
-                youtube.update_snippet(videoId, video_snippet)
-                time.sleep(1)
+                    video_snippet["tags"] = tags
+                    print(f"Executing youtube.update_snippet({videoId}, {video_snippet})")
+                    if videoId not in video_snippet["description"]:
+                        prep_replace = prepend_desc.replace("VIDEO_ID", videoId).replace("INDEX_ID", str(index + 1))
+                        video_in = video_snippet["description"].split("\n")
+                        video_out = []
+                        for ind_inv, inv in reversed(list(enumerate(video_in))):
+                            if "----" in inv:
+                                break
+                            video_out = video_out + [inv]
+                        video_post = "\n".join(reversed(video_out))
+                        video_snippet["description"] = prep_replace + "\n-----------\n" + video_post
+                        youtube.update_snippet(videoId, video_snippet)
+                        time.sleep(1)
             index += 1
+
 
 if __name__ == "__main__":
     argparser.add_argument('--config')

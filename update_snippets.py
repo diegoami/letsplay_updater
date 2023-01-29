@@ -11,17 +11,17 @@ def update_snippets(youtube, playlist_id, search_text, replace_text, prepend_des
         for item in video_items['items']:
             if index+1 < skipped:
                 print(f"Skipping youtube.update_snippet({index})")
-            elif index+1 >= max:
+            elif index+1 > max:
                 print(f"Max reached: {max}")
                 return
             else:
                 if len(item['snippet']) > 0:
                     videoId = item['snippet']["resourceId"]["videoId"]
                     video_snippet = youtube.get_video_snippet(videoId)
-
-                    video_snippet["title"] = re.sub(search_text, replace_text, video_snippet["title"])
-                    video_snippet["title"] = video_snippet["title"].replace(search_text, replace_text)
-
+                    replace_result = replace_text.replace('_INDEX_', str(index+1).rjust(2, '0'))
+                    title = re.sub(search_text, replace_result, video_snippet["title"])
+                    #video_snippet["title"] = video_snippet["title"].replace(search_text, replace_text)
+                    video_snippet["title"] = title
                     video_snippet["tags"] = tags
                     print(f"Executing youtube.update_snippet({videoId}, {video_snippet})")
                     if videoId not in video_snippet["description"]:

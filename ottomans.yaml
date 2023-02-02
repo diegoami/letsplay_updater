@@ -1,0 +1,15 @@
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/ottomans"
+playlist: "PLNP_nRm4k4jcIzqTTuIyVG4J-cUyemn1k"
+skipped: 20
+max: 100
+search_text: "Let's play Europa Universalis IV - Ottomans II -"
+replace_text: "Europa Universalis IV - Playthrough - Ottomans - "
+prepend_desc: |
+  Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jcIzqTTuIyVG4J-cUyemn1k
+  No commentary playthrough of Europa Universalis IV as Ottomans, normal difficulty, random lucky nations.
+  Standard game as Ottomans, trying to fulfill all mission.
+tags:
+  - Europa Universalis
+  - Ottomans
+  - Playthrough
+

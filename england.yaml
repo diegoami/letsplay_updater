@@ -1,0 +1,16 @@
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/england"
+playlist: "PLNP_nRm4k4jdXFJZrMnMaS5QXktdaUUcg"
+skipped: 5
+max: 90
+search_text: "Let's play Europa Universalis 4 1.30 - England -"
+replace_text: "Europa Universalis IV - Playthrough - England - "
+prepend_desc: |
+  Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jdXFJZrMnMaS5QXktdaUUcg
+  No commentary playthrough of Europa Universalis IV as England, normal difficulty, random lucky nations.
+  Standard game as England and Great Britain, trying to fulfill all mission.
+tags:
+  - Europa Universalis
+  - England
+  - Great Britain
+  - Playthrough
+

@@ -1,0 +1,15 @@
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/italy"
+playlist: "PLNP_nRm4k4jfmMQGIRwRQKHBKypDS614c"
+skipped: 62
+max: 150
+search_text: 'Let"s play Hearts of Irony - '
+replace_text: "Hearts of Iron IV - Playthrough - "
+prepend_desc: |
+  Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jfmMQGIRwRQKHBKypDS614c
+  No commentary playthrough of Hearts of Iron IV as Italy, normal difficulty.
+  Standard Axis game, attempting to win the war.
+tags:
+  - Hearts of Iron
+  - Paradox
+  - Playthrough
+

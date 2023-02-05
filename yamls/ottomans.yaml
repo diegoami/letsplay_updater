@@ -1,7 +1,7 @@
 thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/ottomans"
-playlist: "PLNP_nRm4k4jcIzqTTuIyVG4J-cUyemn1k"
-skipped: 5
-max: 150
+playlist: "PLNP_nRm4k4jeS6yN4UabXyil2ed9kkyua"
+skipped: 0
+max: 2
 search_text: '.*Europa Universalis.*Ottomans.*-\s*E[\d]+\s*-'
 replace_text: "Europa Universalis IV - Playthrough - Ottomans - E_INDEX_ -"
 prepend_desc: |

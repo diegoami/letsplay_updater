@@ -1,9 +1,9 @@
 thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/victoria_soviet"
 playlist: "PLNP_nRm4k4jeS6yN4UabXyil2ed9kkyua"
-skipped: 5
+skipped: 26
 max: 50
-search_text: 'Victoria 2 HPM - Russian Empire -'
-replace_text: "Victoria II HPM - Playthrough - Soviet Union - "
+search_text: 'E[\db]+'
+replace_text: "E_INDEX_"
 prepend_desc: |
   Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jeS6yN4UabXyil2ed9kkyua
   No commentary playthrough of Victoria II HPM as Russian Empire and Soviet Union, normal difficulty.

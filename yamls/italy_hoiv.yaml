@@ -1,7 +1,7 @@
 thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/italy"
 playlist: "PLNP_nRm4k4jfmMQGIRwRQKHBKypDS614c"
-skipped: 140
-max: 165
+skipped: 120
+max: 1000
 #search_text: 'Hearts of Iron IV - Playthrough - Italy 1936 - E[\d]+'
 #replace_text: "Hearts of Iron IV - Playthrough - Italy 1936 - E_INDEX_"
 

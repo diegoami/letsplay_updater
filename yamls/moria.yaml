@@ -1,0 +1,22 @@
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/mori"
+playlist: "PLNP_nRm4k4jc2Foht-lZUz4C0ea7pMx3o"
+skipped: 2
+max: 50
+search_text: 'Shogun 2 TW - Mori campaign 2'
+replace_text: "Shogun II Total War - Playthrough - Mori Campaign"
+
+#search_text: 'Let"s play Hearts of Iron'
+#replace_text: "Hearts of Iron IV - Playthrough"
+#search_text: 'E[\d]+'
+#replace_text: 'E_INDEX_'
+#list: lists/italy_hoiv.lst
+prepend_desc: |
+  Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jc2Foht-lZUz4C0ea7pMx3o
+  No commentary playthrough of Shogun II Total War as the Mori faction, on normal difficulty.
+tags:
+  - Shogun
+  - Shogun II
+  - Mori
+  - Total War
+  - Playthrough
+

@@ -1,11 +1,11 @@
 from youtube3 import YoutubeClient
 from oauth2client.tools import argparser
-import os
 import yaml
-import time
 import os
 from PIL import Image
-
+import datetime
+import difflib
+from  collections import defaultdict
 import pytesseract
 
 ALL_MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -18,6 +18,47 @@ def get_all_chars():
                 cmonts.append(char)
     result = numbs + ''.join(cmonts)
     return result
+
+
+def separate_string(input_string):
+    for i, char in enumerate(input_string):
+        if char.isdigit():
+            return input_string[:i], input_string[i:]
+    return input_string, ""
+def get_closest_month(month_orig):
+    closest = difflib.get_close_matches(month_orig, ALL_MONTHS, n=1, cutoff=0.6)
+    if closest:
+        return closest[0]
+    return None
+
+def convert_date_format(orig_str):
+    orig_lines = orig_str.split()
+    if len(orig_lines) == 2:
+        month_and_day, orig_year = orig_lines[0], orig_lines[1]
+        orig_month_name, orig_day = separate_string(month_and_day)
+    elif len(orig_lines) == 3:
+        orig_month_name, orig_day, orig_year = orig_lines
+    else:
+        return None
+    orig_year = orig_year[:4]
+    closest_month = get_closest_month(orig_month_name)
+    if closest_month:
+        to_conv_date = closest_month+" "+orig_day+" "+orig_year
+        try:
+            date = datetime.datetime.strptime(to_conv_date, '%B %d, %Y')
+            return date.strftime('%d.%m.%Y')
+        except:
+            return None
+    else:
+        return None
+
+def generate_date_list_from_map(date_map, output_file):
+    with open(output_file, 'w') as f:
+        for index, dates in date_map.items():
+            first, last = dates[0], dates[-1]
+            f.write(f'{index} {first} {last}\n')
+
+
 if __name__ == "__main__":
     # os.environ["TESSDATA_PREFIX"] = "/home/diego/tesseract/"
     argparser.add_argument('--config')
@@ -38,20 +79,34 @@ if __name__ == "__main__":
             output = conf_info["output"]
             until = conf_info["until"]
             dates_dir = conf_info["dates_dir"]
-            dates_map = {}
+            dates_map = defaultdict(list)
+            get_out = 0
             for file_name in os.listdir(dates_dir):
+                if get_out > 20:
+                    break
                 nparts = file_name.split('_')
                 img_index = int(nparts[0])
                 full_file_name = os.path.join(dates_dir, file_name)
                 img = Image.open(full_file_name)
                 img = img.resize((img.width * 2, img.height * 2) )
-                #for dpi in [30, 50, 70, 100, 150, 200]:
+                found = False
+                tried = set()
+
                 for dpi in [150, 200, 250 ]:
                     for oem in [1, 2, 3]:
-                        tessact_config = f'--dpi {dpi} --oem {oem}'
-                        if True:
-                        #if oem == 2 or oem == 3:
-                            date_str = pytesseract.image_to_string(img, config=tessact_config + tewcconfig)
-                            print(f'{file_name}, {dpi}, {oem} --> {date_str.strip()}')
-                       # date_str = pytesseract.image_to_string(img, config=tessact_config + tewcconfig + tess_train_data )
-                       # print(f'{file_name}, {dpi}, {oem}, TD --> {date_str.strip()}')
+                        if not found:
+                            tessact_config = f'--dpi {dpi} --oem {oem}'
+                            if True:
+                                date_str = pytesseract.image_to_string(img, config=tessact_config + tewcconfig).strip()
+                                tried.add(date_str)
+                                conv_date = convert_date_format(date_str)
+                                if conv_date:
+                                    print(f'{file_name}, {dpi}, {oem} --> {conv_date}')
+                                    dates_map[img_index].append(conv_date)
+                                    found = True
+                                    get_out += 1
+                if not found:
+                    print(f"No valid date found in {tried}")
+
+            print(dates_map)
+            generate_date_list_from_map(dates_map, output)

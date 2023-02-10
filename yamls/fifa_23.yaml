@@ -1,0 +1,18 @@
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/interfifa23"
+playlist: "PLNP_nRm4k4jeT4TpdI31BljDBK0sL5R7u"
+skipped: 17
+max: 50
+#search_text: 'FIFA 23 - Internazionale - Pro - First Season - E[\d]+'
+#replace_text: 'FIFA 23 - Playthrough - Internazionale - Professional - 2022/23 - E_INDEX_'
+search_text: 'E[\d]+'
+replace_text: 'E_INDEX_'
+
+list: lists/italy_hoiv.lst
+prepend_desc: |
+  Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jeT4TpdI31BljDBK0sL5R7u
+  No commentary playthrough of FIFA 23, Internazional, on Professional, struggling a lot.
+tags:
+  - FIFA 23
+  - Internazionale
+  - Playthrough
+

@@ -43,6 +43,4 @@ if __name__ == "__main__":
                                   conf_info.get("skipped",0),
                                   conf_info.get("max",1000)
                                   )
-        #videoInfo = youtube.get_video(args.videoId)
-        #youtube.upload_thumbnail(args.videoId, args.thumbnail)
 

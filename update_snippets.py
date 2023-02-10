@@ -6,6 +6,18 @@ import time
 
 import re
 def update_snippets(youtube, playlist_id, search_text, replace_text, prepend_desc, tags, skipped, max):
+    """
+    This function updates the snippets (title, description, and tags) of videos in a given YouTube playlist. The function takes several arguments:
+    -   `youtube`: an object representing the YouTube API.
+    -   `playlist_id`: the id of the playlist to update the snippets of.
+    -   `search_text`: a string that will be searched for in the title of each video in the playlist.
+    -   `replace_text`: a string that will replace the `search_text` in the title of each video in the playlist.
+    -   `prepend_desc`: a string that will be added to the beginning of the description of each video in the playlist.
+    -   `tags`: a list of strings that will be added as tags to each video in the playlist.
+    -   `skipped`: an integer representing the number of videos to skip at the beginning of the playlist.
+    -   `max`: an integer representing the maximum number of videos to update.
+    The function uses the `youtube` object to get the list of videos in the playlist and then iterates over each video to update its snippet. If the index of the current video is less than `skipped`, the function will print a message indicating that the video is being skipped. If the index of the current video is greater than `max`, the function will return and not update any more videos. Otherwise, it will get the snippet of the video and perform the updates as specified by the arguments.
+    """
     index = 0
     for video_items in youtube.iterate_videos_in_playlist(playlist_id):
         for item in video_items['items']:
@@ -17,7 +29,11 @@ def update_snippets(youtube, playlist_id, search_text, replace_text, prepend_des
             else:
                 if len(item['snippet']) > 0:
                     videoId = item['snippet']["resourceId"]["videoId"]
-                    video_snippet = youtube.get_video_snippet(videoId)
+                    try:
+                        video_snippet = youtube.get_video_snippet(videoId)
+                    except Exception as err:
+                        print("Ignoring deleted video")
+                        continue
                     replace_result = replace_text.replace('_INDEX_', str(index+1).rjust(2, '0'))
                     title = re.sub(search_text, replace_result, video_snippet["title"])
                     #video_snippet["title"] = video_snippet["title"].replace(search_text, replace_text)

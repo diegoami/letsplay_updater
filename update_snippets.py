@@ -34,22 +34,25 @@ def update_snippets(youtube, playlist_id, search_text, replace_text, prepend_des
                     except Exception as err:
                         print("Ignoring deleted video")
                         continue
-                    replace_result = replace_text.replace('_INDEX_', str(index+1).rjust(2, '0'))
-                    title = re.sub(search_text, replace_result, video_snippet["title"])
-                    #video_snippet["title"] = video_snippet["title"].replace(search_text, replace_text)
-                    video_snippet["title"] = title
-                    video_snippet["tags"] = tags
+                    if search_text and replace_text:
+                        replace_result = replace_text.replace('_INDEX_', str(index+1).rjust(2, '0'))
+                        title = re.sub(search_text, replace_result, video_snippet["title"])
+                        #video_snippet["title"] = video_snippet["title"].replace(search_text, replace_text)
+                        video_snippet["title"] = title
+                    if tags:
+                        video_snippet["tags"] = tags
                     print(f"Executing youtube.update_snippet({videoId}, {video_snippet})")
                     if videoId not in video_snippet["description"]:
-                        prep_replace = prepend_desc.replace("VIDEO_ID", videoId).replace("INDEX_ID", str(index + 1))
-                        video_in = video_snippet["description"].split("\n")
-                        video_out = []
-                        for ind_inv, inv in reversed(list(enumerate(video_in))):
-                            if "----" in inv:
-                                break
-                            video_out = video_out + [inv]
-                        video_post = "\n".join(reversed(video_out))
-                        video_snippet["description"] = prep_replace + "\n-----------\n" + video_post
+                        if prepend_desc:
+                            prep_replace = prepend_desc.replace("VIDEO_ID", videoId).replace("INDEX_ID", str(index + 1))
+                            video_in = video_snippet["description"].split("\n")
+                            video_out = []
+                            for ind_inv, inv in reversed(list(enumerate(video_in))):
+                                if "----" in inv:
+                                    break
+                                video_out = video_out + [inv]
+                            video_post = "\n".join(reversed(video_out))
+                            video_snippet["description"] = prep_replace + "\n-----------\n" + video_post
                         youtube.update_snippet(videoId, video_snippet)
                         time.sleep(1)
             index += 1
@@ -70,9 +73,9 @@ if __name__ == "__main__":
             skipped = conf_info.get("skipped",0)
             max = conf_info.get("max", 1000)
 
-            search_text = conf_info["search_text"]
-            replace_text = conf_info["replace_text"]
-            prepend_desc = conf_info["prepend_desc"]
+            search_text = conf_info.get("search_text", None)
+            replace_text = conf_info.get("replace_text", None)
+            prepend_desc = conf_info.get("prepend_desc", None)
             tags = conf_info["tags"]
             update_snippets(youtube, playlist, search_text, replace_text, prepend_desc, tags, skipped, max)
 

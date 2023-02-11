@@ -67,7 +67,8 @@ You can also specify the following optional parameters in the YAML file:
 # Process Data Images
 
 ## Overview
-This script is used to extract dates from images and convert them to a standardized format. The script uses the pytesseract library to perform optical character recognition (OCR) on the images and difflib library to find the closest matching month name in the list ALL_MONTHS.
+This script is used to extract dates from images and convert them to a standardized format. 
+The script uses the _pytesseract_ library to perform optical character recognition (OCR) on the images and _difflib_ library to find the closest matching month name in the list ALL_MONTHS.
 
 ## Requirements
 - python 3.x
@@ -79,21 +80,24 @@ This script is used to extract dates from images and convert them to a standardi
 - argparse
 
 ## Usage
-The script is executed by running `python process_date_migs --config <config_file_path>`
+The script is executed by running `python imgs--config <config_file_path>`
 
-The script takes one required argument, --config, which specifies the path to a configuration file in YAML format. The configuration file should contain the following information:
+The script takes one required argument, --config, which specifies the path to a configuration file in YAML format. Here is an example
 
-`pattern: 
-output: 
-until: 
-dates_dir:`
+```
+pattern: 00.00.18XX
+output: lists/ottomans_gc.list
+dates_dir:  "/media/diego/One Touch/extreme_dates/PLNP_nRm4k4jcsDxyfI2W9jfJwnralBQbb"
+pattern: '%B %d, %Y'
+```
 
-dates_dir is the path to the directory containing the images to be processed. The script outputs the processed dates in the format dd.mm.yyyy. 
+_dates_dir_ is the path to the directory containing the images to be processed. The script outputs the processed dates in the format dd.mm.yyyy. 
 
 
 ## Configuration
 
-The script can be configured by modifying the tessact_config and tessedit_char_whitelist variables. tessact_config specifies the configuration options for pytesseract and tessedit_char_whitelist specifies the characters that pytesseract should recognize in the images. The list ALL_MONTHS contains the month names to be used for date recognition.
+The script can be configured by modifying the _tessact_config_ and _tessedit_char_whitelist_ variables. tessact_config specifies the configuration options for pytesseract and tessedit_char_whitelist specifies the characters that pytesseract should recognize in the images.
+The list ALL_MONTHS contains the month names to be used for date recognition.
 
 ## Limitations
-The script is limited by the accuracy of the pytesseract library and the similarity threshold set in the difflib.get_close_matches function. The script may not work correctly if the dates in the images are in a format significantly different from the expected format.
+The script is limited by the accuracy of the _pytesseract_ library and the similarity threshold set in the _difflib.get_close_matches_ function. The script may not work correctly if the dates in the images are in a format significantly different from the expected format.

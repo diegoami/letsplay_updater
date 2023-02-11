@@ -1,0 +1,21 @@
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/civchina"
+playlist: "PLNP_nRm4k4jdMieRNbvfSB6R9d4LyWFvc"
+skipped: 3
+max: 20
+#search_text: 'Hearts of Iron IV - Playthrough - Italy 1936 - E[\d]+'
+#replace_text: "Hearts of Iron IV - Playthrough - Italy 1936 - E_INDEX_"
+
+#search_text: 'Let"s play Hearts of Iron'
+#replace_text: "Hearts of Iron IV - Playthrough"
+#search_text: 'E[\d]+'
+#replace_text: 'E_INDEX_'
+
+prepend_desc: |
+  Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jdMieRNbvfSB6R9d4LyWFvc
+  No commentary playthrough of Civilization II as the Chinese, on Emperor difficulty.
+tags:
+  - Civilization II
+  - Microprose
+  - Chinese
+  - Playthrough
+

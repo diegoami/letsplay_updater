@@ -1,0 +1,16 @@
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/fm21_7"
+playlist: "PLNP_nRm4k4jeu2yKODrszS6I2wIHBx3RK"
+skipped: 3
+max: 50
+search_text: 'Inter to Real Sebastian'
+replace_text: 'Real Sociedad'
+#list: lists/italy_hoiv.lst
+prepend_desc: |
+  Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jeu2yKODrszS6I2wIHBx3RK
+  No commentary playthrough of Football Manager 21, seventh season, as a trainer for Real Sociedad in the second season after five years at Internazionale Milano.
+  A difficult year, where we struggle to stay competitive in La Liga, while trying to qualify in the European Champions League.
+tags:
+  - Football Manager
+  - Real Sebastian
+  - Playthrough
+

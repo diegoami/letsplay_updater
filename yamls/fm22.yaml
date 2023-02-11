@@ -1,0 +1,18 @@
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/fm22b"
+playlist: "PLNP_nRm4k4jeyBn4RaQiGawqrlkBoRkxQ"
+skipped: 0
+max: 3
+#search_text: 'FIFA 23 - Internazionale - Pro - First Season - E[\d]+'
+#replace_text: 'FIFA 23 - Playthrough - Internazionale - Professional - 2022/23 - E_INDEX_'
+#search_text: 'E[\d]+'
+#replace_text: 'E_INDEX_'
+
+#list: lists/italy_hoiv.lst
+prepend_desc: |
+  Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jeyBn4RaQiGawqrlkBoRkxQ
+  No commentary playthrough of Football Manager 22, as a trainer for Internazionale Milano. Second Season, 2022/23.
+tags:
+  - Football Manager
+  - Internazionale
+  - Playthrough
+

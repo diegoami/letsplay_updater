@@ -1,7 +1,8 @@
 thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/ottoman_imported"
 playlist: "PLNP_nRm4k4jcsDxyfI2W9jfJwnralBQbb"
-skipped: 61
-max: 160
+skipped: 118
+max: 150
+list: lists/ottomans_gc.list
 search_text: "Lets' play Victoria 2 - Ottomans, EU4 converted"
 replace_text: "Victoria II Great Campaign - Ottomans"
 prepend_desc: |

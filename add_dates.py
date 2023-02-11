@@ -21,7 +21,7 @@ def update_dates(youtube, playlist_id, list_map, skipped, max):
                     to_add = list_map[index+1]
                     videoId = item['snippet']["resourceId"]["videoId"]
                     video_snippet = youtube.get_video_snippet(videoId)
-                    if to_add not in video_snippet["title"]:
+                    if " to " not in video_snippet["title"]:
 
                         video_snippet["title"] = video_snippet["title"] + ' - ' +to_add
                         print(f"Executing youtube.update_snippet({videoId}, {video_snippet})")

@@ -10,6 +10,9 @@ import pytesseract
 
 ALL_MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 def get_all_chars():
+    """
+    This function iterates through a list of months and appends each character in the month to a list if it is not already present in that list. Finally, it combines the list of characters with a comma and a set of numbers as a single string and returns the result.
+    """
     numbs ='1234567890,'
     cmonts = []
     for month in ALL_MONTHS:
@@ -31,7 +34,7 @@ def get_closest_month(month_orig):
         return closest[0]
     return None
 
-def convert_date_format(orig_str):
+def convert_date_format(orig_str, pattern):
     orig_lines = orig_str.split()
     if len(orig_lines) == 2:
         month_and_day, orig_year = orig_lines[0], orig_lines[1]
@@ -45,7 +48,7 @@ def convert_date_format(orig_str):
     if closest_month:
         to_conv_date = closest_month+" "+orig_day+" "+orig_year
         try:
-            date = datetime.datetime.strptime(to_conv_date, '%B %d, %Y')
+            date = datetime.datetime.strptime(to_conv_date, pattern)
             return date.strftime('%d.%m.%Y')
         except:
             return None
@@ -59,10 +62,37 @@ def generate_date_list_from_map(date_map, output_file):
             f.write(f'{index} {first} {last}\n')
 
 
+def create_dates_map_from_images(dates_dir, pattern):
+    dates_map = defaultdict(list)
+    for file_name in os.listdir(dates_dir):
+        nparts = file_name.split('_')
+        img_index = int(nparts[0])
+        full_file_name = os.path.join(dates_dir, file_name)
+        img = Image.open(full_file_name)
+        img = img.resize((img.width * 2, img.height * 2))
+        found = False
+        tried = set()
+
+        for dpi in [150, 200, 250]:
+            for oem in [1, 2, 3]:
+                if not found:
+                    tessact_config = f'--dpi {dpi} --oem {oem}'
+                    if True:
+                        date_str = pytesseract.image_to_string(img, config=tessact_config + tewcconfig).strip()
+                        tried.add(date_str)
+                        conv_date = convert_date_format(date_str, pattern)
+                        if conv_date:
+                            print(f'{file_name}, {dpi}, {oem} --> {conv_date}')
+                            dates_map[img_index].append(conv_date)
+                            found = True
+        if not found:
+            print(f"No valid date found in {tried}")
+    return dates_map
+
+
 if __name__ == "__main__":
     # os.environ["TESSDATA_PREFIX"] = "/home/diego/tesseract/"
     argparser.add_argument('--config')
-    tessact_config = r'--dpi 300'
     tess_train_data = ' --tessdata-dir /home/diego/tesseract/eng.traineddata'
     tessedit_char_whitelist = get_all_chars()
     tewcconfig = f'-c tessedit_char_whitelist={tessedit_char_whitelist}'
@@ -75,38 +105,8 @@ if __name__ == "__main__":
             conf_info = yaml.safe_load(confhandle)
             print(conf_info)
             pattern = conf_info["pattern"]
-
             output = conf_info["output"]
-            until = conf_info["until"]
             dates_dir = conf_info["dates_dir"]
-            dates_map = defaultdict(list)
-            get_out = 0
-            for file_name in os.listdir(dates_dir):
-                if get_out > 20:
-                    break
-                nparts = file_name.split('_')
-                img_index = int(nparts[0])
-                full_file_name = os.path.join(dates_dir, file_name)
-                img = Image.open(full_file_name)
-                img = img.resize((img.width * 2, img.height * 2) )
-                found = False
-                tried = set()
-
-                for dpi in [150, 200, 250 ]:
-                    for oem in [1, 2, 3]:
-                        if not found:
-                            tessact_config = f'--dpi {dpi} --oem {oem}'
-                            if True:
-                                date_str = pytesseract.image_to_string(img, config=tessact_config + tewcconfig).strip()
-                                tried.add(date_str)
-                                conv_date = convert_date_format(date_str)
-                                if conv_date:
-                                    print(f'{file_name}, {dpi}, {oem} --> {conv_date}')
-                                    dates_map[img_index].append(conv_date)
-                                    found = True
-                                    get_out += 1
-                if not found:
-                    print(f"No valid date found in {tried}")
-
+            dates_map = create_dates_map_from_images(dates_dir, pattern)
             print(dates_map)
             generate_date_list_from_map(dates_map, output)

@@ -1,0 +1,15 @@
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/pirates"
+playlist: "PLNP_nRm4k4jfr_XU98_RIajpxBia8_9tI"
+skipped: 2
+max: 50
+#search_text: 'Hegemony 3 - Veneti - Normal'
+#replace_text: "Hegemony III - Playthrough - Veneti"
+prepend_desc: |
+  Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jfr_XU98_RIajpxBia8_9tI
+  Playthrough of Sid Meier's pirates, Rogue, Navigation Bonus.
+  All objectives completed.
+tags:
+  - Pirates
+  - Sid Meier
+  - Playthrough
+

@@ -1,0 +1,5 @@
+pattern: 15XX
+output: lists/moria.list
+dates_dir:  "/media/diego/One Touch/extreme_dates_test/PLNP_nRm4k4jc2Foht-lZUz4C0ea7pMx3o/4/"
+pattern: '%Y'
+white_list_method_name: 'only_numbers'

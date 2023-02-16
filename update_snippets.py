@@ -34,9 +34,12 @@ def update_snippets(youtube, playlist_id, search_text, replace_text, prepend_des
                     except Exception as err:
                         print("Ignoring deleted video")
                         continue
-                    if search_text and replace_text:
+                    if replace_text:
                         replace_result = replace_text.replace('_INDEX_', str(index+1).rjust(2, '0'))
-                        title = re.sub(search_text, replace_result, video_snippet["title"])
+                        if search_text:
+                            title = re.sub(search_text, replace_result, video_snippet["title"])
+                        else:
+                            title = replace_result
                         #video_snippet["title"] = video_snippet["title"].replace(search_text, replace_text)
                         video_snippet["title"] = title
                     if tags:

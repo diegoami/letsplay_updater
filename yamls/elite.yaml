@@ -1,0 +1,14 @@
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/elite"
+playlist: "PLNP_nRm4k4jfSFeHYxiF-sqrMQzc344rF"
+skipped: 48
+max: 500
+search_text: ''
+replace_text: "Let's play Elite Dangerous - E_INDEX_"
+prepend_desc: |
+  Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jf6nRTkfCTb_XLrA7aMP2Gy
+  Playthrough of Elite Dangerous, as explorer of the Vela Molecular Ridge
+tags:
+  - Elite Dangerous
+  - Vela Molecular Ridge
+  - Playthrough
+

@@ -1,0 +1,15 @@
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/texastea"
+playlist: "PLNP_nRm4k4jfev-qCzbWStZkGRF09So-A"
+skipped: 41
+max: 200
+#search_text: 'Let's play Railroad Tycoon III - '
+#replace_text: "Hegemony III - Playthrough - Veneti"
+prepend_desc: |
+  Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jfev-qCzbWStZkGRF09So-A
+  Playthrough of Railroad Tycoon III, Texas Tea scenario.
+  All objectives completed.
+tags:
+  - Railroad Tycoon III
+  - Texas Tea
+  - Playthrough
+

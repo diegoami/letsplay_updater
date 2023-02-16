@@ -1,0 +1,15 @@
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/hegemony"
+playlist: "PLNP_nRm4k4jctK6cvhZF912eYk6HXMRe9"
+skipped: 2
+max: 50
+search_text: 'Hegemony 3 - Veneti - Normal'
+replace_text: "Hegemony III - Playthrough - Veneti"
+prepend_desc: |
+  Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jctK6cvhZF912eYk6HXMRe9
+  No commentary playthrough of Hegemony III, normal difficulty.
+  Standard game as Veneti.
+tags:
+  - Hegemony III
+  - Veneti
+  - Playthrough
+

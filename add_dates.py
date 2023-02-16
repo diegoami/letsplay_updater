@@ -40,6 +40,9 @@ def load_dates_list(date_lst_file):
             if len(line.split()) == 3:
                 index, start_date, end_date = line.split()
                 dates_map[int(index)] = f'{start_date} to {end_date}'
+            elif len(line.split()) == 2:
+                index, date_str = line.split()
+                dates_map[int(index)] = date_str
 
     return dates_map
 

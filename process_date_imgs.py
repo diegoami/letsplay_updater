@@ -7,8 +7,12 @@ import datetime
 import difflib
 from  collections import defaultdict
 import pytesseract
+import sys
 
 ALL_MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+def only_numbers():
+    return "1234567890"
+
 def get_all_chars():
     """
     This function iterates through a list of months and appends each character in the month to a list if it is not already present in that list. Finally, it combines the list of characters with a comma and a set of numbers as a single string and returns the result.
@@ -34,7 +38,7 @@ def get_closest_month(month_orig):
         return closest[0]
     return None
 
-def convert_date_format(orig_str, pattern):
+def convert_vic_format(orig_str, pattern):
     orig_lines = orig_str.split()
     if len(orig_lines) == 2:
         month_and_day, orig_year = orig_lines[0], orig_lines[1]
@@ -62,14 +66,14 @@ def generate_date_list_from_map(date_map, output_file):
             f.write(f'{index} {first} {last}\n')
 
 
-def create_dates_map_from_images(dates_dir, pattern):
+def create_dates_map_from_images(dates_dir, pattern, conversion_method_name, tewcconfig):
     dates_map = defaultdict(list)
     for file_name in os.listdir(dates_dir):
         nparts = file_name.split('_')
         img_index = int(nparts[0])
         full_file_name = os.path.join(dates_dir, file_name)
         img = Image.open(full_file_name)
-        img = img.resize((img.width * 2, img.height * 2))
+        img = img.resize((img.width * 4, img.height * 4))
         found = False
         tried = set()
 
@@ -80,7 +84,11 @@ def create_dates_map_from_images(dates_dir, pattern):
                     if True:
                         date_str = pytesseract.image_to_string(img, config=tessact_config + tewcconfig).strip()
                         tried.add(date_str)
-                        conv_date = convert_date_format(date_str, pattern)
+                        if conversion_method_name:
+                            conversion_method = getattr(sys.modules[__name__], conversion_method_name)
+                            conv_date = conversion_method(date_str, pattern)
+                        else:
+                            conv_date = date_str
                         if conv_date:
                             print(f'{file_name}, {dpi}, {oem} --> {conv_date}')
                             dates_map[img_index].append(conv_date)
@@ -94,8 +102,7 @@ if __name__ == "__main__":
     # os.environ["TESSDATA_PREFIX"] = "/home/diego/tesseract/"
     argparser.add_argument('--config')
     tess_train_data = ' --tessdata-dir /home/diego/tesseract/eng.traineddata'
-    tessedit_char_whitelist = get_all_chars()
-    tewcconfig = f'-c tessedit_char_whitelist={tessedit_char_whitelist}'
+
     args = argparser.parse_args()
     if args.config == None:
         print("required argument --config <config>")
@@ -107,6 +114,13 @@ if __name__ == "__main__":
             pattern = conf_info["pattern"]
             output = conf_info["output"]
             dates_dir = conf_info["dates_dir"]
-            dates_map = create_dates_map_from_images(dates_dir, pattern)
+            conversion_method_name = conf_info.get("conversion_method_name", None)
+            white_list_method_name = conf_info.get("white_list_method_name", None)
+            if white_list_method_name:
+                tessedit_char_whitelist = getattr(sys.modules[__name__], white_list_method_name)()
+                tewcconfig = f'-c tessedit_char_whitelist={tessedit_char_whitelist}'
+            else:
+                tewcconfig = '-c'
+            dates_map = create_dates_map_from_images(dates_dir, pattern, conversion_method_name, tewcconfig)
             print(dates_map)
             generate_date_list_from_map(dates_map, output)

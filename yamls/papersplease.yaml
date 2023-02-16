@@ -1,0 +1,27 @@
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/papersplease"
+thumbnail_name: "papersplease2.jpg"
+
+playlist: "PLNP_nRm4k4jc1Lv6GE6Tyz65zehsRPvAU"
+skipped: 0
+max: 100
+search_text: "Let's play Papers Please - "
+#replace_text: "Shogun II Total War - Playthrough - Mori Campaign"
+#list: lists/moria.lst
+prepend_desc: |
+  Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jc1Lv6GE6Tyz65zehsRPvAU
+  Various scenarios of Papers Please
+tags:
+  - Papers Please
+  - Playthrough
+
+text_conf:
+  font:
+    name: "/usr/share/fonts/truetype/tlwg/Loma-Oblique.ttf"
+    size: 64
+    color:
+      r: 32
+      g: 192
+      b: 16
+  coords:
+    x2: 35
+    y: 145

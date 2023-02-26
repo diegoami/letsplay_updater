@@ -1,27 +1,30 @@
-thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/papersplease"
-thumbnail_name: "papersplease2.jpg"
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/warofmine"
+thumbnail_name: "warofmine2.jpg"
 
-playlist: "PLNP_nRm4k4jc1Lv6GE6Tyz65zehsRPvAU"
-skipped: 0
-max: 40
+playlist: "PLNP_nRm4k4jelL_-h3PEoR6_7_4qF4GJl"
+skipped: 20
+max: 50
 #search_text: "Let's play Papers Please - "
 #replace_text: "Shogun II Total War - Playthrough - Mori Campaign"
 #list: lists/moria.lst
+remove_texts:
+  - "Let's Play This War of Mine - "
+  - "Let's play This War of Mine - "
 prepend_desc: |
   Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jc1Lv6GE6Tyz65zehsRPvAU
-  Various scenarios of Papers Please
+  Various scenarios of This War of Mine
 tags:
-  - Papers Please
+  - This War of Mine
   - Playthrough
 
 text_conf:
   font:
     name: "/usr/share/fonts/truetype/tlwg/Loma-Oblique.ttf"
-    size: 48
+    size: 40
     color:
       r: 32
       g: 192
       b: 16
   coords:
-    x2: 35
-    y: 155
+    x2: 15
+    y: 160

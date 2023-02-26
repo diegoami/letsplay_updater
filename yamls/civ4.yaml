@@ -1,0 +1,31 @@
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/civ4"
+thumbnail_name: "civ4b.jpg"
+
+playlist: "PLNP_nRm4k4jeNwf_Wf-cUoom6x9j2wSRl"
+skipped: 2
+max: 80
+remove_texts:
+  - "Let's play Civ 4"
+  - "Let's Play Civ 4"
+  - "Game Summary"
+#search_text:
+#replace_text: "Shogun II Total War - Playthrough - Mori Campaign"
+#list: lists/moria.lst
+prepend_desc: |
+  Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jeNwf_Wf-cUoom6x9j2wSRl
+  A few games of Civilization IV
+tags:
+  - Civilization IV
+  - Playthrough
+
+text_conf:
+  font:
+    name: "/usr/share/fonts/truetype/tlwg/Loma-Oblique.ttf"
+    size: 32
+    color:
+      r: 48
+      g: 32
+      b: 156
+  coords:
+    x2: 10
+    y: 152

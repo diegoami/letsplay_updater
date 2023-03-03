@@ -1,0 +1,28 @@
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/warofmine2"
+thumbnail_name: "warofmine2.jpg"
+
+playlist: "PLNP_nRm4k4jdvIHXhMtQVU_OgmuEwUkXj"
+skipped: 0
+max: 50
+
+remove_texts:
+  - "Let's Play This War of Mine - "
+  - "Let's play This War of Mine - "
+prepend_desc: |
+  Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jdvIHXhMtQVU_OgmuEwUkXj
+  This War of Mine. Scenario Pavle, Bruno, Marko
+tags:
+  - This War of Mine
+  - Playthrough
+
+text_conf:
+  font:
+    name: "/usr/share/fonts/truetype/tlwg/Loma-Oblique.ttf"
+    size: 40
+    color:
+      r: 32
+      g: 192
+      b: 16
+  coords:
+    x2: 15
+    y: 160

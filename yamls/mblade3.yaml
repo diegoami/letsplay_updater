@@ -1,0 +1,15 @@
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/yazd"
+
+
+playlist: "PLNP_nRm4k4jdL-WdRfk8fK9PSSz-NbYpJ"
+skipped: 9
+max: 120
+remove_texts:
+  - "  - "
+prepend_desc: |
+  Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jddjEbEsLdL0NOBkF6BTdf8
+  The adventures of Joanne - a leader, not a fighter.
+tags:
+  - Mount of Blade
+  -  Yazd
+

@@ -1,0 +1,29 @@
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/ron"
+thumbnail_name: "ron2.jpg"
+
+playlist: "PLNP_nRm4k4jcDc0zGAETAtVPraiiGV_fG"
+skipped: 70
+max: 120
+
+remove_texts:
+  - "Rise of Nations - "
+  - "1v1 ranked - Multiplayer -"
+prepend_desc: |
+  Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jcDc0zGAETAtVPraiiGV_fG
+  Some games in Rise of Nations
+tags:
+  - Rise Of Nations
+  - Scenarios
+
+text_conf:
+  font:
+    name: "/usr/share/fonts/truetype/tlwg/Loma-Oblique.ttf"
+    size: 34
+    color:
+      r: 0
+      g: 15
+      b: 222
+  coords:
+    x2: 15
+    y: 150
+    y2: 188

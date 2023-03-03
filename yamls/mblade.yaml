@@ -1,0 +1,16 @@
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/joanna1"
+thumbnail_name: "ron2.jpg"
+
+playlist: "PLNP_nRm4k4jcbUXAWHYzV_ZgsC6oMA_pD"
+skipped: 168
+max: 200
+
+remove_texts:
+  - "  - "
+prepend_desc: |
+  Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jcbUXAWHYzV_ZgsC6oMA_pD
+  The adventures of Joanne - a leader, not a fighter.
+tags:
+  - Mount of Blade
+  - Joanna
+

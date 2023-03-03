@@ -20,7 +20,7 @@ def add_intervals(youtube, playlist_id, interval_dir):
 
                 if len(video_desc_lines) < 2:
                     video_desc += '\n ------------------ \n'
-                    video_desc += '\n'.join(intervals_lines)
+                    video_desc += ''.join(intervals_lines)
                     video_snippet["description"] = video_desc
                     youtube.update_snippet(video_id, video_snippet)
                     print(f"updating snippet for {video_id}")

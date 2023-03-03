@@ -4,7 +4,7 @@ import os
 import yaml
 import time
 
-def update_thumbnails(youtube, playlist_id, directory, skipped, max):
+def update_thumbnails(youtube, playlist_id, directory, skipped, max, start_index = 1):
     """
     This method appears updates the thumbnails of videos in a given YouTube playlist.
     The function takes in the following parameters: a youtube object representing a YouTube API client, the playlist_id of the playlist to update, the directory where the thumbnail files are stored, the skipped number of thumbnails to skip before updating, and the max number of thumbnails to update before stopping.
@@ -13,7 +13,7 @@ def update_thumbnails(youtube, playlist_id, directory, skipped, max):
 
     If the current index is greater than or equal to the max parameter, the function prints a message indicating that the maximum number of thumbnails has been reached and returns. Otherwise, the function checks if the video title contains the word "Deleted". If it does, the function continues to the next video item without updating the thumbnail. If the title does not contain "Deleted", the function prints a message indicating that the thumbnail update is being executed and calls the youtube.upload_thumbnail method to update the video thumbnail with the file located at the generated thumbnail file path. The function then waits for one second using the time.sleep method before continuing to the next video item.
     """
-    index = 0
+    index = start_index - 1
     for video_items in youtube.iterate_videos_in_playlist(playlist_id):
         for item in video_items['items']:
             content_details = item['contentDetails']
@@ -47,8 +47,11 @@ if __name__ == "__main__":
             if conf_info.get("playlist",None) and conf_info.get("thumbnail_directory", None):
                 update_thumbnails(youtube,
                                   conf_info["playlist"],
+
                                   conf_info["thumbnail_directory"],
                                   conf_info.get("skipped",0),
-                                  conf_info.get("max",1000)
+                                  conf_info.get("max",1000),
+                                  conf_info.get("start_index", 1)
+
                                   )
 

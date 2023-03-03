@@ -2,8 +2,8 @@ thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/warofmine"
 thumbnail_name: "warofmine2.jpg"
 
 playlist: "PLNP_nRm4k4jelL_-h3PEoR6_7_4qF4GJl"
-skipped: 20
-max: 50
+skipped: 2
+max: 25
 #search_text: "Let's play Papers Please - "
 #replace_text: "Shogun II Total War - Playthrough - Mori Campaign"
 #list: lists/moria.lst
@@ -11,8 +11,8 @@ remove_texts:
   - "Let's Play This War of Mine - "
   - "Let's play This War of Mine - "
 prepend_desc: |
-  Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jc1Lv6GE6Tyz65zehsRPvAU
-  Various scenarios of This War of Mine
+  Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jelL_-h3PEoR6_7_4qF4GJl
+  This War of Mine: scenario Arica, Bruno, Roman
 tags:
   - This War of Mine
   - Playthrough

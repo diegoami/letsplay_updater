@@ -19,7 +19,6 @@ def update_thumbnails(youtube, playlist_id, directory, skipped, max, start_index
             content_details = item['contentDetails']
             video_id = content_details['videoId']
             title = item['snippet']['title']
-            thumbnails = item['snippet']['thumbnails']
             if check_thumbnails:
                 content_details_thm = youtube.get_video_content_details(video_id)
                 if content_details_thm and content_details_thm["hasCustomThumbnail"]:

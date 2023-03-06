@@ -1,0 +1,13 @@
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/wendy"
+playlist: "PLNP_nRm4k4jfNLo7FkjXewFH9Xe5Uc2Pa"
+skipped: 1
+max: 2000
+remove_texts:
+  - "  - "
+prepend_desc: |
+  Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jfNLo7FkjXewFH9Xe5Uc2Pa
+  The adventures of Wendy - the ultimate Bannerlord leader
+tags:
+  - Mount of Blade
+  - Wendy
+

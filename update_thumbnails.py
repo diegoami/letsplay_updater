@@ -4,7 +4,7 @@ import os
 import yaml
 import time
 
-def update_thumbnails(youtube, playlist_id, directory, skipped, max, start_index = 1):
+def update_thumbnails(youtube, playlist_id, directory, skipped, max, start_index = 1, check_thumbnails = False):
     """
     This method appears updates the thumbnails of videos in a given YouTube playlist.
     The function takes in the following parameters: a youtube object representing a YouTube API client, the playlist_id of the playlist to update, the directory where the thumbnail files are stored, the skipped number of thumbnails to skip before updating, and the max number of thumbnails to update before stopping.
@@ -19,6 +19,15 @@ def update_thumbnails(youtube, playlist_id, directory, skipped, max, start_index
             content_details = item['contentDetails']
             video_id = content_details['videoId']
             title = item['snippet']['title']
+            thumbnails = item['snippet']['thumbnails']
+            if check_thumbnails:
+                content_details_thm = youtube.get_video_content_details(video_id)
+                if content_details_thm and content_details_thm["hasCustomThumbnail"]:
+                    print(f"Thumbnails  for {video_id} at {index} has been already uploaded")
+
+                    index += 1
+                    continue
+
             thumbnail_file = f"{directory}/thumbnail{index+1}.png"
             if index+1 < skipped:
                 print(f"Skipping youtube.upload_thumbnail({video_id}, {thumbnail_file})")
@@ -51,7 +60,8 @@ if __name__ == "__main__":
                                   conf_info["thumbnail_directory"],
                                   conf_info.get("skipped",0),
                                   conf_info.get("max",1000),
-                                  conf_info.get("start_index", 1)
+                                  conf_info.get("start_index", 1),
+                                  conf_info.get("check_thumbnails", True)
 
                                   )
 

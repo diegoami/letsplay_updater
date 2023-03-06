@@ -1,9 +1,7 @@
 thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/yazd"
-
-
 playlist: "PLNP_nRm4k4jdL-WdRfk8fK9PSSz-NbYpJ"
 skipped: 9
-max: 120
+max: 164
 remove_texts:
   - "  - "
 prepend_desc: |

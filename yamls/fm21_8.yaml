@@ -1,0 +1,16 @@
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/fm21_8"
+playlist: "PLNP_nRm4k4jcFAetaAy_dWRerF7Khvn9M"
+skipped: 73
+max: 100
+search_text: 'E[\d]+'
+replace_text: 'E_INDEX_'
+#list: lists/italy_hoiv.lst
+prepend_desc: |
+  Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jcFAetaAy_dWRerF7Khvn9M
+  No commentary playthrough of Football Manager 21, eighth season, as a trainer for Real Sociedad in the second season after five years at Internazionale Milano.
+  A great year, when (almost) everything seems to go right (with a couple of save scum help).
+tags:
+  - Football Manager
+  - Real Sebastian
+  - Playthrough
+

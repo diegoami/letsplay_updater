@@ -1,0 +1,16 @@
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/fm21_4"
+playlist: "PLNP_nRm4k4jcn0qPvJF1X3_B5HUe4-ruJ"
+skipped: 45
+max: 140
+search_text: 'E[\d]+'
+replace_text: 'E_INDEX_'
+#list: lists/italy_hoiv.lst
+prepend_desc: |
+  Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jcn0qPvJF1X3_B5HUe4-ruJ
+  No commentary playthrough of Football Manager 21, the fourth season at Internazionale.
+  Consolidating one's position in the league but still not getting through in the champions league
+tags:
+  - Football Manager
+  - Internazionale
+  - Playthrough
+

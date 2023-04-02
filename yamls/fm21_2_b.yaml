@@ -1,0 +1,33 @@
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/fm21_2_b"
+thumbnail_name: "image2.jpg"
+playlist: "PLNP_nRm4k4jdQOk-rHo_0Zvxl1EbRnB6K"
+skipped: 0
+max: 200
+search_text: 'E[\d]+'
+replace_text: 'E_INDEX_'
+#list: lists/italy_hoiv.lst
+prepend_desc: |
+  Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jdQOk-rHo_0Zvxl1EbRnB6K
+  No commentary playthrough of Football Manager 21, the second season at Internazionale.
+  The dificult second season
+tags:
+  - Football Manager
+  - Internazionale
+  - Playthrough
+split_conf:
+  index: 3
+  separator: "-"
+  expected: 4
+text_conf:
+  font:
+    name: "/usr/share/fonts/truetype/tlwg/Loma-Oblique.ttf"
+    size: 40
+    color:
+      r: 150
+      g: 170
+      b: 183
+  coords:
+    x2: 75
+    x3: 60
+    y: 140
+

@@ -1,0 +1,26 @@
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/fm21_3_h"
+thumbnail_name: "image2.jpg"
+playlist: "PLNP_nRm4k4jcB4jr_en3gLC67pkvIADrd"
+skipped: 0
+max: 100
+search_text: 'E[\d]+'
+replace_text: 'E_INDEX_'
+#list: lists/italy_hoiv.lst
+split_conf:
+  index: 1
+  separator: "-"
+  expected: 5
+
+text_conf:
+  font:
+    name: "/usr/share/fonts/truetype/tlwg/Loma-Oblique.ttf"
+    size: 40
+    color:
+      r: 255
+      g: 255
+      b: 0
+  coords:
+    x2: 75
+    x3: 60
+    y: 140
+

@@ -25,7 +25,7 @@ print(left)
 print(right)
 
 
-def generate_thumbnails(youtube, playlist_id, directory, skipped, max, thumbnail_name, remove_texts, text_conf):
+def generate_thumbnails(youtube, playlist_id, directory, skipped, max, thumbnail_name, remove_texts, text_conf, split_conf):
     index = 0
     font1 = ImageFont.truetype(text_conf["font"]["name"], text_conf["font"]["size"])
     color = (text_conf["font"]["color"]["r"], text_conf["font"]["color"]["g"], text_conf["font"]["color"]["b"])
@@ -48,7 +48,17 @@ def generate_thumbnails(youtube, playlist_id, directory, skipped, max, thumbnail
                 if remove_texts:
                     for remove_text in remove_texts:
                         extracted_title = extracted_title.replace(remove_text, '')
+                if split_conf:
+                    split_index = split_conf["index"]
+                    split_separator = split_conf["separator"]
+                    split_expected = split_conf.get("expected", None)
 
+                    extracted_splits = extracted_title.split(split_separator)
+                    if split_expected  and len(extracted_splits) != split_expected:
+                        print(f"Wrong number of seprators in { extracted_title}")
+                        continue
+                    else:
+                        extracted_title = extracted_splits[split_index]
                 extracted_title = extracted_title.replace('-', '').replace('(', '').replace(')', '').replace(',', '').strip()
 
                 baseImg = Image.open(thumbnail_file_input)
@@ -87,8 +97,7 @@ if __name__ == "__main__":
                                     conf_info.get("thumbnail_name", "thumbnail"),
                                     conf_info.get("remove_texts", None),
                                     conf_info.get("text_conf", None),
-
-
+                                    conf_info.get("split_conf", None)
 
                                     )
 

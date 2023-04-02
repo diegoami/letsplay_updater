@@ -1,0 +1,16 @@
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/fm21_3"
+playlist: "PLNP_nRm4k4jcQrq-c4vlfIWVnpFy7eE3w"
+skipped: 23
+max: 100
+search_text: 'E[\d]+'
+replace_text: 'E_INDEX_'
+#list: lists/italy_hoiv.lst
+prepend_desc: |
+  Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jcQrq-c4vlfIWVnpFy7eE3w
+  No commentary playthrough of Football Manager 21, the third season at Internazionale.
+  Winning the league for the second time
+tags:
+  - Football Manager
+  - Internazionale
+  - Playthrough
+

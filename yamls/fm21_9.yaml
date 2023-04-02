@@ -1,0 +1,15 @@
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/fm21_9"
+playlist: "PLNP_nRm4k4jdOQw7fy4UOe3E54rsnnXz9"
+skipped: 2
+max: 100
+# search_text: 'E[\d]+'
+# replace_text: 'E_INDEX_'
+#list: lists/italy_hoiv.lst
+prepend_desc: |
+  Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jdOQw7fy4UOe3E54rsnnXz9
+  No commentary playthrough of Football Manager 21, ninth season, trainer for Sociedad and Inter on the path of triumph.
+tags:
+  - Football Manager
+  - Real Sebastian
+  - Playthrough
+

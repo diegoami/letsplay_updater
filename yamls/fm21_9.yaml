@@ -1,9 +1,16 @@
 thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/fm21_9"
 playlist: "PLNP_nRm4k4jdOQw7fy4UOe3E54rsnnXz9"
+<<<<<<< HEAD
 skipped: 10
 max: 100
 search_text: 'E[\d]+'
 replace_text: 'E_INDEX_'
+=======
+skipped: 2
+max: 100
+# search_text: 'E[\d]+'
+# replace_text: 'E_INDEX_'
+>>>>>>> b1acb231749568b0c33fb23078377a090a64c669
 #list: lists/italy_hoiv.lst
 prepend_desc: |
   Playlist: https://www.youtube.com/playlist?list=PLNP_nRm4k4jdOQw7fy4UOe3E54rsnnXz9
@@ -11,6 +18,9 @@ prepend_desc: |
 tags:
   - Football Manager
   - Real Sebastian
+<<<<<<< HEAD
   - Internazionale
+=======
+>>>>>>> b1acb231749568b0c33fb23078377a090a64c669
   - Playthrough
 

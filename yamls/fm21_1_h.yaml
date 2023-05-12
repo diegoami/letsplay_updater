@@ -1,6 +1,10 @@
 thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/fm21_1_h"
 thumbnail_name: "image2.jpg"
+<<<<<<< HEAD
 playlist: "PLNP_nRm4k4jfbluxHphX4EERMz9HWCDk4"
+=======
+playlist: "PLNP_nRm4k4jeDUcCgh4vRquVY2QoYrwt4"
+>>>>>>> b1acb231749568b0c33fb23078377a090a64c669
 skipped: 0
 max: 100
 search_text: 'E[\d]+'
@@ -9,7 +13,11 @@ replace_text: 'E_INDEX_'
 split_conf:
   index: 1
   separator: "-"
+<<<<<<< HEAD
   expected: 4
+=======
+  expected: 5
+>>>>>>> b1acb231749568b0c33fb23078377a090a64c669
 
 text_conf:
   font:

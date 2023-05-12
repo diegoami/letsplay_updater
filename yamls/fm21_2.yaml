@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/fm21_2_b"
 playlist: "PLNP_nRm4k4jdQOk-rHo_0Zvxl1EbRnB6K"
 skipped: 0
 max: 100
 check_thumbnails: false
+=======
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/fm21_2"
+playlist: "PLNP_nRm4k4jdQOk-rHo_0Zvxl1EbRnB6K"
+skipped: 4
+max: 200
+>>>>>>> b1acb231749568b0c33fb23078377a090a64c669
 search_text: 'E[\d]+'
 replace_text: 'E_INDEX_'
 #list: lists/italy_hoiv.lst

@@ -1,10 +1,16 @@
 thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/fm21_6_h"
 thumbnail_name: "image2.jpg"
 
+<<<<<<< HEAD
 playlist: " "
 skipped: 0
 max: 100
 
+=======
+playlist: "PLNP_nRm4k4jff_kXg_HpEz2768YamSOaU"
+skipped: 14
+max: 16
+>>>>>>> b1acb231749568b0c33fb23078377a090a64c669
 search_text: 'E[\d]+'
 replace_text: 'E_INDEX_'
 #list: lists/italy_hoiv.lst

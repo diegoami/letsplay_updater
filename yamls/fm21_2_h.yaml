@@ -16,9 +16,9 @@ text_conf:
     name: "/usr/share/fonts/truetype/tlwg/Loma-Oblique.ttf"
     size: 40
     color:
-      r: 60
-      g: 110
-      b: 113
+      r: 180
+      g: 200
+      b: 240
   coords:
     x2: 75
     x3: 60

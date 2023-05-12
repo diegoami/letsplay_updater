@@ -2,8 +2,9 @@ thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/fm21_8_h"
 thumbnail_name: "image2.jpg"
 
 playlist: "PLNP_nRm4k4jdRyRSuFnh7JXuYwAvhqs4-"
-skipped: 24
-max: 28
+skipped: 27
+max: 100
+check_thumbnails: False
 search_text: 'E[\d]+'
 replace_text: 'E_INDEX_'
 #list: lists/italy_hoiv.lst

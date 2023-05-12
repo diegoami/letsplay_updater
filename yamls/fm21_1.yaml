@@ -1,6 +1,6 @@
-thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/fm21_1"
-playlist: "PLNP_nRm4k4jdQOk-rHo_0Zvxl1EbRnB6K"
-skipped: 0
+thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/fm21_1_b"
+playlist: "PLNP_nRm4k4jccuciOKk9YA_LEjqqLO3BX"
+skipped: 19
 max: 200
 search_text: 'E[\d]+'
 replace_text: 'E_INDEX_'

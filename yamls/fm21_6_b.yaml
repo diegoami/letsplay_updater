@@ -1,7 +1,7 @@
 thumbnail_directory: "/media/diego/One Touch/letsplay/thumbnails/fm21_6_b"
 thumbnail_name: "image2.jpg"
 playlist: "PLNP_nRm4k4jcJXtYFwL-TzOSIYOHQ03F4"
-skipped: 100
+skipped: 0
 max: 200
 search_text: 'E[\d]+'
 replace_text: 'E_INDEX_'
